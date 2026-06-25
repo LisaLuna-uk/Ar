@@ -1,0 +1,773 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+/* Global styles */
+.portrait {
+  flex: none;
+  border-width: 0;
+  margin-right: 5px;
+}
+
+.check {
+  cursor: pointer;
+}
+
+.roll-template > div {
+  display: none;
+  margin: 5px;
+}
+
+.roll-template > div.active {
+  display: block;
+}
+
+.roll-message {
+  min-height: 88px;
+}
+.roll-message h1 {
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  text-align: center;
+  text-transform: uppercase;
+}
+.roll-message .roll-info {
+  position: relative;
+}
+.roll-message .roll-info .dice-rolls {
+  position: relative;
+  list-style: none;
+  margin: 5px 0;
+  padding: 0;
+  overflow: hidden;
+}
+.roll-message .roll-info .dice-rolls .dice {
+  position: relative;
+  min-width: 36px;
+  line-height: 36px;
+  float: left;
+  margin-right: 1px;
+  background-image: url(/icons/svg/d6-grey.svg);
+  background-repeat: no-repeat;
+  background-size: 36px 36px;
+  font-size: 16px;
+  color: #000;
+  font-weight: bold;
+  text-align: center;
+}
+.roll-message .roll-info .dice-rolls .special-dice {
+  min-width: 32px;
+  line-height: 32px;
+  background-size: 32px 32px;
+}
+.roll-message .roll-info .dice-rolls .dice.infirmity-match {
+  opacity: 0.5;
+}
+.roll-message .roll-info .result {
+  position: absolute;
+  min-width: 48px;
+  line-height: 48px;
+  top: 5px;
+  right: 20px;
+  background-image: url(../icons/ui/two-dice.svg);
+  background-repeat: no-repeat;
+  background-size: 48px 48px;
+  font-size: 16px;
+  color: #000;
+  font-weight: bold;
+}
+.roll-message .roll-info .result .text {
+  position: relative;
+  left: 32px;
+  bottom: 14px;
+}
+.roll-message .difficulty {
+  text-align: center;
+}
+.roll-message .roll-results h4 {
+  flex: 0;
+  font-size: 18px;
+  font-weight: bold;
+  position: relative;
+  margin: 0;
+  line-height: 24px;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--color-border-light-2);
+  border-radius: 3px;
+  box-shadow: 0 0 2px #fff inset;
+  word-break: break-all;
+  text-transform: uppercase;
+}
+.roll-message .roll-results h4.additionally {
+  margin-top: 5px;
+}
+
+.flex-group-center,
+.flex-group-left,
+.flex-group-right {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.flex-group-left {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.flex-group-right {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.flexshrink {
+  flex: 0;
+}
+
+.flex-between {
+  justify-content: space-between;
+}
+
+.flexlarge {
+  flex: 2;
+}
+
+.align-left {
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.align-right {
+  justify-content: flex-end;
+  text-align: right;
+}
+
+.align-center {
+  justify-content: center;
+  text-align: center;
+}
+
+.grid,
+.grid-2col {
+  display: grid;
+  grid-column: span 2/span 2;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 10px 0;
+  padding: 0;
+}
+
+.grid-3col {
+  grid-column: span 3/span 3;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.grid-4col {
+  grid-column: span 4/span 4;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.grid-5col {
+  grid-column: span 5/span 5;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+}
+
+.grid-6col {
+  grid-column: span 6/span 6;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+.grid-7col {
+  grid-column: span 7/span 7;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+}
+
+.grid-8col {
+  grid-column: span 8/span 8;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+}
+
+.grid-9col {
+  grid-column: span 9/span 9;
+  grid-template-columns: repeat(9, minmax(0, 1fr));
+}
+
+.grid-10col {
+  grid-column: span 10/span 10;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+}
+
+.grid-11col {
+  grid-column: span 11/span 11;
+  grid-template-columns: repeat(11, minmax(0, 1fr));
+}
+
+.grid-12col {
+  grid-column: span 12/span 12;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.grid-start-2 {
+  grid-column-start: 2;
+}
+
+.grid-start-3 {
+  grid-column-start: 3;
+}
+
+.grid-start-4 {
+  grid-column-start: 4;
+}
+
+.grid-start-5 {
+  grid-column-start: 5;
+}
+
+.grid-start-6 {
+  grid-column-start: 6;
+}
+
+.grid-start-7 {
+  grid-column-start: 7;
+}
+
+.grid-start-8 {
+  grid-column-start: 8;
+}
+
+.grid-start-9 {
+  grid-column-start: 9;
+}
+
+.grid-start-10 {
+  grid-column-start: 10;
+}
+
+.grid-start-11 {
+  grid-column-start: 11;
+}
+
+.grid-start-12 {
+  grid-column-start: 12;
+}
+
+.grid-span-2 {
+  grid-column-end: span 2;
+}
+
+.grid-span-3 {
+  grid-column-end: span 3;
+}
+
+.grid-span-4 {
+  grid-column-end: span 4;
+}
+
+.grid-span-5 {
+  grid-column-end: span 5;
+}
+
+.grid-span-6 {
+  grid-column-end: span 6;
+}
+
+.grid-span-7 {
+  grid-column-end: span 7;
+}
+
+.grid-span-8 {
+  grid-column-end: span 8;
+}
+
+.grid-span-9 {
+  grid-column-end: span 9;
+}
+
+.grid-span-10 {
+  grid-column-end: span 10;
+}
+
+.grid-span-11 {
+  grid-column-end: span 11;
+}
+
+.grid-span-12 {
+  grid-column-end: span 12;
+}
+
+.window-app {
+  font-family: "Lora", serif;
+}
+
+.window-content input[type=number] {
+  max-width: 35px;
+}
+.window-content input[type=text] {
+  width: auto;
+}
+
+.archetericalite.sheet.actor {
+  min-width: 700px;
+  min-height: 600px;
+}
+
+.archetericalite.sheet.item {
+  min-width: 600px;
+  min-height: 400px;
+}
+
+input.clear-input {
+  border-width: 0;
+  border-radius: 0;
+  background-image: none;
+  background-color: transparent;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+input.clear-input:focus {
+  outline: none;
+}
+
+.rank {
+  counter-increment: my-awesome-counter 0;
+  counter-reset: my-awesome-counter var(--rank);
+}
+
+.rank:before {
+  content: counter(my-awesome-counter, upper-roman);
+  margin-right: 5px;
+}
+
+.rollable:hover, .rollable:focus {
+  color: #000;
+  cursor: pointer;
+}
+
+.tox {
+  min-height: 300px;
+}
+
+.editor {
+  min-height: 200px;
+}
+
+/* Styles limited to archetericalite sheets */
+.archetericalite {
+  /* ----------------------------------------- */
+  /*  Items Lists                              */
+  /* ----------------------------------------- */
+}
+.archetericalite .item-form {
+  font-family: "Lora", serif;
+}
+.archetericalite .sheet-header {
+  flex: 0 auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+.archetericalite .sheet-header .img-block {
+  flex: 1;
+  min-width: 150px;
+  padding-right: 10px;
+}
+.archetericalite .sheet-header .img-block .profile-img {
+  height: 100%;
+  width: 100%;
+}
+.archetericalite .sheet-header .img-block .hp-bar {
+  position: relative;
+  top: -10px;
+  height: 20px;
+  overflow-y: visible;
+}
+.archetericalite .sheet-header .img-block .hp-bar progress {
+  width: 100%;
+}
+.archetericalite .sheet-header .img-block .hp-bar .hp-input {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: -10px;
+}
+.archetericalite .sheet-header .img-block .hp-bar .hp-input * {
+  text-align: center;
+}
+.archetericalite .sheet-header .header-fields {
+  flex: 4;
+}
+.archetericalite .sheet-header h1.charname {
+  height: 50px;
+  padding: 0px;
+  margin: 5px 0;
+  border-bottom: 0;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+}
+.archetericalite .sheet-header h1.charname input {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.archetericalite .sheet-header .faction-block {
+  grid-template-columns: auto 150px;
+}
+.archetericalite .sheet-header .faction-block h2.faction {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-bottom: 0;
+}
+.archetericalite .sheet-header .faction-block h2.faction input {
+  border-bottom-width: 1px;
+}
+.archetericalite nav.sheet-tabs {
+  flex: 0;
+  border-top-width: 2px;
+  border-bottom: none;
+}
+.archetericalite nav.sheet-tabs a.item {
+  background-color: rgba(165, 154, 132, 0.3);
+  text-shadow: none;
+}
+.archetericalite nav.sheet-tabs a.item.active {
+  background: none;
+  text-shadow: none;
+}
+.archetericalite .sheet-body .grid {
+  gap: 10px;
+}
+.archetericalite .sheet-body .block-header {
+  position: relative;
+}
+.archetericalite .sheet-body .block-header a.item-add {
+  position: absolute;
+  top: 7px;
+  right: 0;
+}
+.archetericalite .sheet-body .block-header a.item-add i {
+  margin-right: 2px;
+}
+.archetericalite .sheet-body .block-header a.item-add i::before {
+  position: relative;
+  top: 1px;
+}
+.archetericalite .sheet-body .item-header {
+  position: relative;
+}
+.archetericalite .sheet-body .item-header .item-name {
+  display: flex;
+}
+.archetericalite .sheet-body .item-header .item-name h3 {
+  margin: 0 3px;
+  width: 100%;
+  border: none;
+}
+.archetericalite .sheet-body .item-header .item-controls {
+  position: absolute;
+  top: 5px;
+  right: 3px;
+}
+.archetericalite .sheet-body .narrative .negative {
+  grid-area: 1/2/span 2/auto;
+}
+.archetericalite .sheet-body .narrative .attribute-block {
+  display: grid;
+  grid-template-columns: 75px auto;
+  gap: 10px;
+}
+.archetericalite .sheet-body .narrative .attribute-block .talentsPyramid {
+  text-align: center;
+}
+.archetericalite .sheet-body .narrative .attribute-block .talentsPyramid h4 {
+  font-weight: bold;
+}
+.archetericalite .sheet-body .narrative .attribute-block .talentsPyramid .resource {
+  margin: 20px 0;
+}
+.archetericalite .sheet-body .narrative .attribute-block .talentsPyramid .resource input {
+  min-width: 50px;
+  border-radius: 7px;
+}
+.archetericalite .sheet-body .narrative .attribute-block .talentsPyramid .resource .resource-label {
+  display: block;
+  width: 100%;
+}
+.archetericalite .sheet-body .narrative .attribute-block .talent-list {
+  position: relative;
+}
+.archetericalite .sheet-body .narrative .attribute-block .talent-list li {
+  margin-bottom: 5px;
+}
+.archetericalite .sheet-body .narrative .attribute-block .talent-list li input[type=checkbox] {
+  position: absolute;
+  right: 0px;
+}
+.archetericalite .sheet-body .narrative .attribute-block .talent-list li:empty {
+  background-color: #555;
+}
+.archetericalite .sheet-body .combat .resource-content {
+  display: inline;
+}
+.archetericalite .sheet-body .combat .resource-content i {
+  margin-left: 5px;
+}
+.archetericalite .sheet-body .combat .rank {
+  margin-left: 3px;
+}
+.archetericalite .sheet-body .mystical .resource-content {
+  display: inline;
+}
+.archetericalite .sheet-body .riches .editor {
+  min-height: 150px;
+  padding: 0 5px;
+  border: 1px solid var(--color-border-light-primary);
+}
+.archetericalite .sheet-body .description {
+  padding-bottom: 25px;
+}
+.archetericalite .sheet-body .description .biography {
+  grid-area: 2/2/span 2/auto;
+}
+.archetericalite .sheet-body .description .editor {
+  min-height: 100px;
+  height: calc(100% - 28px);
+  padding: 0 5px;
+  border: 1px solid var(--color-border-light-primary);
+}
+.archetericalite button.check {
+  height: 30px;
+  margin: 0;
+  border-style: solid;
+  border-color: #777;
+  border-width: 1px;
+  text-shadow: none;
+  font-family: "Lora", serif;
+  font-weight: bold;
+}
+.archetericalite button.check:focus {
+  outline: none;
+}
+.archetericalite .tox .tox-editor-container {
+  background: #fff;
+}
+.archetericalite .tox .tox-edit-area {
+  padding: 0 8px;
+}
+.archetericalite .items-header {
+  flex: 100px auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+.archetericalite .items-header .item-img {
+  flex: 0 0 100px;
+  height: 100px;
+  margin-right: 10px;
+  border: none;
+}
+.archetericalite .items-header .header-fields {
+  flex: 1;
+}
+.archetericalite .items-header .header-fields h1.item-name {
+  height: 50px;
+  padding: 0px;
+  margin: 5px 0;
+  border-bottom: 0;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+}
+.archetericalite .items-header .header-fields h1.item-name input {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.archetericalite .sheet-body .info-bar {
+  flex: auto;
+}
+.archetericalite .sheet-body .editor-block {
+  flex: auto;
+}
+.archetericalite .sheet-body .editor-block .editor {
+  min-height: 200px;
+}
+.archetericalite .items-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  color: #444;
+}
+.archetericalite .items-list .item-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.archetericalite .items-list .item-name {
+  flex: 2;
+  margin: 0;
+  overflow: hidden;
+  font-size: 13px;
+  text-align: left;
+  align-items: center;
+  display: flex;
+}
+.archetericalite .items-list .item-name h3, .archetericalite .items-list .item-name h4 {
+  margin: 0;
+  white-space: nowrap;
+  overflow-x: hidden;
+}
+.archetericalite .items-list .item-controls {
+  position: absolute;
+  top: 4px;
+  right: 0;
+  display: flex;
+  justify-content: flex-end;
+}
+.archetericalite .items-list .item-controls a {
+  font-size: 12px;
+  text-align: center;
+  margin: 0 6px;
+}
+.archetericalite .items-list .item {
+  position: relative;
+  align-items: center;
+  padding: 0 2px;
+  border-bottom: 1px solid #c9c7b8;
+}
+.archetericalite .items-list .item:last-child {
+  border-bottom: none;
+}
+.archetericalite .items-list .item .item-name {
+  color: #191813;
+}
+.archetericalite .items-list .item .item-name .item-image {
+  flex: 0 0 30px;
+  height: 30px;
+  background-size: 30px;
+  border: none;
+  margin-right: 5px;
+}
+.archetericalite .items-list .item-prop {
+  text-align: center;
+  border-left: 1px solid #c9c7b8;
+  border-right: 1px solid #c9c7b8;
+  font-size: 12px;
+}
+.archetericalite .items-list .items-header {
+  height: 28px;
+  margin: 2px 0;
+  padding: 0;
+  align-items: center;
+  background-color: rgba(165, 154, 132, 0.3);
+  border: 1px solid var(--color-border-light-primary);
+  font-weight: bold;
+}
+.archetericalite .items-list .items-header > * {
+  font-size: 12px;
+  text-align: center;
+}
+.archetericalite .items-list .items-header .item-name {
+  padding-left: 5px;
+  text-align: left;
+}
+.archetericalite .sidebar-block .info-sidebar {
+  flex: 2;
+  min-width: 190px;
+  max-width: 200px;
+  padding: 5px;
+  background-color: rgba(165, 154, 132, 0.3);
+  border: 1px solid var(--color-border-light-primary);
+}
+.archetericalite .sidebar-block .editor-block {
+  flex: 5;
+  padding: 5px;
+}
+.archetericalite span.weapon-type:not(:last-of-type)::after {
+  content: ",";
+}
+.archetericalite div.weapon-type {
+  background-color: rgba(165, 154, 132, 0.3);
+  border: 1px solid var(--color-border-light-primary);
+}
+.archetericalite div.weapon-type h3 {
+  border-bottom: none;
+}
+.archetericalite input[type=checkbox] {
+  position: relative;
+  top: 5px;
+}
+.archetericalite img {
+  border: none;
+}
+.archetericalite .limited-sheet {
+  flex: 0 auto;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+}
+.archetericalite .limited-sheet img.profile-img {
+  flex: 1;
+  height: 300px;
+  min-width: 300px;
+  padding-right: 10px;
+  border: none;
+}
+.archetericalite .limited-sheet .limited-info {
+  flex: 2;
+}
+.archetericalite .limited-sheet .limited-info h1.charname {
+  height: 50px;
+  padding: 0px;
+  margin: 5px 0;
+  border-bottom: 0;
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+}
+.archetericalite .limited-sheet .limited-info h1.charname input {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+.archetericalite .limited-sheet .general-info {
+  width: 100%;
+}
+.archetericalite .limited-sheet .editor {
+  min-height: 150px;
+  padding: 0 5px;
+  border: 1px solid var(--color-border-light-primary);
+}
+.archetericalite .resources {
+  margin-bottom: 5px;
+  align-items: baseline;
+}
+.archetericalite .resources .resource {
+  flex: auto;
+  align-items: baseline;
+}
+.archetericalite .resources .resource * {
+  flex: auto;
+}
+.archetericalite .resource .resource-label {
+  font-weight: bold;
+}
+.archetericalite .resource .resource-content {
+  display: inline;
+}
+.archetericalite .resource input {
+  display: inline;
+}
+
+/*# sourceMappingURL=archetericalite.css.map */
